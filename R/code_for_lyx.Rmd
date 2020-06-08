@@ -1,0 +1,98 @@
+---
+title: "ex3_test_commands"
+author: "Peter Sutovsky"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document: default
+  pdf_document: default
+  bookdown::pdf_document2: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment=NA)
+```
+
+```{r , echo=FALSE,warning=FALSE,error=FALSE}
+library(magrittr)
+library(dplyr)
+library(kableExtra)
+```
+
+
+## R Markdown
+
+
+```{r}
+fileN <- "C:\\Users\\sutov\\Dropbox\\Work\\Manchester\\dECMT\\NephroOncologyWriting\\data_inputs\\sumary_metrics_v00_time_time=20-05-19_05-25-35_short.csv"
+ds = read.csv(fileN)
+
+```
+
+```{r}
+colNames = colnames(ds)
+print(colNames)
+```
+```{r,include=TRUE}
+# print(head(ds))
+```
+```{r}
+
+```
+
+```{r}
+ds2 <- ds[c("modelName","missing_data","recordCount","accuracy")]
+# print(ds2)
+```
+```{r results="asis",include=F}
+kable(ds2,"latex",digits = 2,booktabs=T)  %>% kable_styling (latex_options = c("striped","scale_down"))
+```
+
+```{r Accuracy.With_caption, results="asis"}
+table1 <- kable(ds2,digits = 2,booktabs=T,caption = "Accuracy with caption ",label = "accuracy",col.names = c("model name", "missing data present", "recods count", "accuracy"))  %>% kable_styling (latex_options = c("striped","scale_down"))
+# print(table1)
+table1
+```
+In table \ref(tab:Accuracy.With_caption).
+In fig \ref(fig:Accuracy.With_caption).
+
+```{r results="asis"}
+library(xtable)
+m1.table <- xtable(ds2,digits = 2,caption="Accuracies for various models(xtable)", label = "accuracies2")
+# print(m1.table,type="latex",floating = FALSE,caption.placement = "bottom", include.rownames = FALSE)
+```
+
+
+```{r results="asis"}
+library(xtable)
+#Just some random data
+x1 <- rnorm(1000); x2 <- rnorm(1000); x3 <- rnorm(1000)
+y  <- 2 + 1 *x1 + rnorm(1000)
+#Run regressions
+reg1 <- summary(lm(y ~ x1))
+reg2 <- summary(lm(y ~ x2))
+reg3 <- summary(lm(y ~ x3))
+#Create data.frame
+df <- data.frame(Model = 1:3,
+                 Alpha = c(reg1$coef[1,1], reg2$coef[1,1], reg3$coef[1,1]),
+                 Beta  = c(reg1$coef[2,1], reg2$coef[2,1], reg3$coef[2,1]),
+                 tV    = c(reg1$coef[2,2], reg2$coef[2,2], reg3$coef[2,2]),
+                 AdjR  = c(reg1$adj.r.s,  reg2$adj.r.s,   reg3$adj.r.s))
+strCaption <- paste0("\\textbf{Table Whatever} This table is just produced with some",
+                     "random data and does not mean anything. Just to show you how ",
+                     "things work.")
+# print(xtable(df, digits=2, caption=strCaption, label="Test_table"), 
+#       size="footnotesize", #Change size; useful for bigger tables
+#       include.rownames=FALSE, #Don't print rownames
+#       include.colnames=FALSE, #We create them ourselves
+#       caption.placement="top", 
+#       hline.after=NULL, #We don't need hline; we use booktabs
+#       add.to.row = list(pos = list(-1, 
+#                                    nrow(df)),
+#                         command = c(paste("\\toprule \n",
+#                                           "Model & $\\alpha$ & $\\beta$ & t-value & $R^2$ \\\\\n", 
+#                                           "\\midrule \n"),
+#                                     "\\bottomrule \n")
+#                         )
+#       )
+
+```

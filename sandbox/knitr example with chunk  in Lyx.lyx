@@ -1,0 +1,542 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+AKI prediction algorithms and performance
+\end_layout
+
+\begin_layout Section
+Bayesian Networks
+\end_layout
+
+\begin_layout Subsection
+Data version 1.x
+\end_layout
+
+\begin_layout Subsubsection
+Model BN v00 - 4 time periods, SCr Value depends on value at t-1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename C:/Users/sutov/Dropbox/Work/Manchester/dECMT/NephroOncologyWriting/figures/AKI prediction_Stage_1_Learning_wo_Drug_v004_order03_4_training xdsl.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/sutov/Dropbox/Work/Manchester/dECMT/NephroOncologyWriting/figures/AKI prediction_Stage_1_Learning_wo_Drug_v004_order03_4_training xdsl.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Model BN01 - 4 time periods, SCr Value depends on value at t-1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Chunk
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+setup, include=FALSE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+knitr=knitr::opts_chunk$set(echo = FALSE, comment=NA)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Model BN01 - 4 time periods, SCr Value depends on value at t-1
+\end_layout
+
+\begin_layout Subsubsection
+Results
+\end_layout
+
+\begin_layout Standard
+assd
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Chunk
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+accuracies, echo=FALSE, results=
+\begin_inset Quotes erd
+\end_inset
+
+asis
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+fileN <- "C:
+\backslash
+
+\backslash
+Users
+\backslash
+
+\backslash
+sutov
+\backslash
+
+\backslash
+Dropbox
+\backslash
+
+\backslash
+Work
+\backslash
+
+\backslash
+Manchester
+\backslash
+
+\backslash
+dECMT
+\backslash
+
+\backslash
+NephroOncologyWriting
+\backslash
+
+\backslash
+data_inputs
+\backslash
+
+\backslash
+sumary_metrics_v00_time_time=20-05-19_05-25-35_short.csv" 
+\end_layout
+
+\begin_layout Plain Layout
+
+ds = read.csv(fileN)
+\end_layout
+
+\begin_layout Plain Layout
+
+ds2 <- ds[c("modelName","accuracy")]
+\end_layout
+
+\begin_layout Plain Layout
+
+knitr::kable(ds2,caption="Accuracies for various models (KABLE)",digits
+ = 2,label = "accuracies")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Chunk
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+accuracies2, echo=FALSE,results=
+\begin_inset Quotes erd
+\end_inset
+
+asis
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library(xtable) 
+\end_layout
+
+\begin_layout Plain Layout
+
+m1.table <- xtable(ds2,digits = 2,caption=c("Accuracies for various models
+ (XTABLE)",
+\begin_inset Quotes erd
+\end_inset
+
+xtab
+\begin_inset Quotes erd
+\end_inset
+
+), label = "accuracies2")
+\end_layout
+
+\begin_layout Plain Layout
+
+print.xtable(m1.table,type="latex",floating = TRUE,caption.placement = "top",
+ include.rownames = FALSE)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dfsd
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Chunk
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+ex00,echo=FALSE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Chunk
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+example01, echo=FALSE,results=
+\begin_inset Quotes erd
+\end_inset
+
+asis
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+library(xtable) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Just some random data 
+\end_layout
+
+\begin_layout Plain Layout
+
+x1 <- rnorm(1000); x2 <- rnorm(1000); x3 <- rnorm(1000) 
+\end_layout
+
+\begin_layout Plain Layout
+
+y  <- 2 + 1 *x1 + rnorm(1000) 
+\end_layout
+
+\begin_layout Plain Layout
+
+# Run regressions 
+\end_layout
+
+\begin_layout Plain Layout
+
+reg1 <- summary(lm(y ~ x1)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+reg2 <- summary(lm(y ~ x2)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+reg3 <- summary(lm(y ~ x3))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#Create data.frame 
+\end_layout
+
+\begin_layout Plain Layout
+
+df <- data.frame(Model = 1:3,                  Alpha = c(reg1$coef[1,1],
+ reg2$coef[1,1], reg3$coef[1,1]),                  Beta  = c(reg1$coef[2,1],
+ reg2$coef[2,1], reg3$coef[2,1]),                  tV    = c(reg1$coef[2,2],
+ reg2$coef[2,2], reg3$coef[2,2]),                  AdjR  = c(reg1$adj.r.s,
+  reg2$adj.r.s,   reg3$adj.r.s)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+strCaption <- paste0("
+\backslash
+
+\backslash
+textbf{Table Whatever} This table is just produced with some",         
+             "random data and does not mean anything.
+ Just to show you how ",                      "things work.")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+print(xtable(df, digits=2, caption=strCaption, label="Test_table"),
+\end_layout
+
+\begin_layout Plain Layout
+
+	size="footnotesize", #Change size; useful for bigger tables      
+\end_layout
+
+\begin_layout Plain Layout
+
+	include.rownames=FALSE, #Don't print rownames       
+\end_layout
+
+\begin_layout Plain Layout
+
+	include.colnames=FALSE, #We create them ourselves       
+\end_layout
+
+\begin_layout Plain Layout
+
+	caption.placement="top",        
+\end_layout
+
+\begin_layout Plain Layout
+
+	hline.after=NULL, #We don't need hline; we use booktabs       
+\end_layout
+
+\begin_layout Plain Layout
+
+	add.to.row = list(pos = list(-1,nrow(df)),
+\end_layout
+
+\begin_layout Plain Layout
+
+	command = c(paste("
+\backslash
+
+\backslash
+toprule 
+\backslash
+n","Model & $
+\backslash
+
+\backslash
+alpha$ & $
+\backslash
+
+\backslash
+beta$ & t-value & $R^2$ 
+\backslash
+n","
+\backslash
+
+\backslash
+midrule 
+\backslash
+n"),"
+\backslash
+
+\backslash
+bottomrule 
+\backslash
+n")))
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

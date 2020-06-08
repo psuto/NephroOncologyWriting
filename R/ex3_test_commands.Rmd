@@ -1,0 +1,23 @@
+---
+title: "ex3_test_commands"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment=NA)
+```
+
+## R Markdown
+
+```{r}
+
+```
+
+
+```{r}
+fileN <- "C:\\Users\\sutov\\Dropbox\\Work\\Manchester\\dECMT\\NephroOncologyWriting\\data_inputs\\sumary_metrics_v00_time_time=20-05-19_04-19-54_short.csv"
+ds = read.csv(fileN)
+print(2+6)
+```

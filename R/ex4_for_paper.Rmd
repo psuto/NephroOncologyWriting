@@ -1,0 +1,46 @@
+---
+title: "ex4_for papers  for research"
+output: 
+  html_document: default
+  pdf_document: default
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+author: Peter Sutovsky
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r cars}
+summary(cars)
+```
+
+# Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=T}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Tables
+
+```{r table1 ,echo=T}
+require(knitr)
+
+df <- data.frame(A=c(1,2),B=c(4,2),C=c(3,4),D=c(8,7))
+knitr::kable(df, caption = "Table 1", label = "table1",
+             col.names = c("Space in name",
+                           "(Special Characters)",
+                           "$\\delta{m}_1$",
+                           "Space in name"))
+
+```
+
+```{r}
+colnames(df)
+```
+
