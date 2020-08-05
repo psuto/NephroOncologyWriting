@@ -71,9 +71,9 @@ knitr
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -195,7 +195,7 @@ asis
 \begin_inset Quotes erd
 \end_inset
 
-
+, warn=-1
 \end_layout
 
 \end_inset
@@ -224,11 +224,11 @@ fileN <- "C:
 \backslash
 
 \backslash
-Users
+Work
 \backslash
 
 \backslash
-sutov
+DropBoxPS
 \backslash
 
 \backslash
@@ -237,14 +237,6 @@ Dropbox
 
 \backslash
 Work
-\backslash
-
-\backslash
-Manchester
-\backslash
-
-\backslash
-dECMT
 \backslash
 
 \backslash
@@ -558,6 +550,35 @@ Model BN02 - 4 time steps, SCr value at time
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Background information
+\end_layout
+
+\begin_layout Standard
+NHS England AKI detection Algorithm evaluated in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "sawhney2015acute"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "C:/Work/DropBoxPS/Dropbox/Docear/projects/Leicester2014/literature_repository/Mendeley_Bibtex/dECMT-Nephro-oncology"
+options "plainnat"
 
 \end_inset
 
